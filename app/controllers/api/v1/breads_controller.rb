@@ -1,10 +1,14 @@
 class Api::V1::BreadsController < ApplicationController
 
-  before_action :set_bread, only: %i[] #show update destroy
+  before_action :set_bread, only: %i[show] #show update destroy
 
   def index
     @breads = Bread.all 
     render json: @breads
+  end
+
+  def show
+    render json: @bread
   end
 
 private
