@@ -12,7 +12,7 @@ RSpec.describe Bread, type: :model do
     end
 
     it 'price consegue ser preenchido?' do
-      @bread.price = ''
+      @bread.price = 'R$12,00'
       expect(@bread.price).to eq('R$12,00')
     end
 
