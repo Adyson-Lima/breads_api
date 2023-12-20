@@ -7,7 +7,7 @@ RSpec.describe Bread, type: :model do
   describe 'Testes de preenchimento do model Bread' do
 
     it 'name consegue ser preenchido?' do
-      @bread.name = ''
+      @bread.name = 'pão de forma'
       expect(@bread.name).to eq('pão de forma')
     end
 
