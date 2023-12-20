@@ -21,8 +21,8 @@ RSpec.describe Bread, type: :model do
   describe 'Testes de validacao do model Bread' do
 
     it 'objeto bread valido com campos obrigatorios preenchidos?' do
-      @bread.name = ''
-      @bread.price = ''
+      @bread.name = 'centeio'
+      @bread.price = 'R$7,00'
       expect(@bread).to be_valid
     end
 
