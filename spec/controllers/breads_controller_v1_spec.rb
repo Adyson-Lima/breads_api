@@ -28,4 +28,13 @@ RSpec.describe Api::V1::BreadsController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/breads/id' do
+    it 'Consegue atualizar um bread e retornar status 200?' do
+      bread = Bread.last
+      patch :update, params: {bread: {name: 'hamburger', price: 'R$3,00'}, id: bread.id}
+      expect(response.body).to include_json(name: 'hamburger')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
