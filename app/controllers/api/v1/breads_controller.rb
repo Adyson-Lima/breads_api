@@ -11,6 +11,15 @@ class Api::V1::BreadsController < ApplicationController
     render json: @bread
   end
 
+  def create
+    @bread = Bread.new(bread_params)
+    if @bread.save
+      render json: @bread, status: :created, location: api_v1_bread_url(@bread)
+    else
+      render json: @bread.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_bread
