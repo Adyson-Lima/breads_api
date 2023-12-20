@@ -1,6 +1,6 @@
 class Api::V1::BreadsController < ApplicationController
 
-  before_action :set_bread, only: %i[show] #show update destroy
+  before_action :set_bread, only: %i[show update] #show update destroy
 
   def index
     @breads = Bread.all 
@@ -15,6 +15,14 @@ class Api::V1::BreadsController < ApplicationController
     @bread = Bread.new(bread_params)
     if @bread.save
       render json: @bread, status: :created, location: api_v1_bread_url(@bread)
+    else
+      render json: @bread.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @bread.update(bread_params)
+      render json: @bread
     else
       render json: @bread.errors, status: :unprocessable_entity
     end
