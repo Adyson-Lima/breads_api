@@ -11,6 +11,11 @@ RSpec.describe Bread, type: :model do
       expect(@bread.name).to eq('pão de forma')
     end
 
+    it 'price consegue ser preenchido?' do
+      @bread.price = ''
+      expect(@bread.price).to eq('R$12,00')
+    end
+
   end
 
 end
