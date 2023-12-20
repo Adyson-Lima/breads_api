@@ -37,4 +37,13 @@ RSpec.describe Api::V1::BreadsController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/breads/id' do
+    it 'Consegue excluir um bread e retornar status 204?' do
+      bread = Bread.last
+      delete :destroy, params: {id: bread.id}
+      expect(Bread.all).not_to include(bread)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
