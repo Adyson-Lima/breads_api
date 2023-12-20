@@ -26,6 +26,11 @@ RSpec.describe Bread, type: :model do
       expect(@bread).to be_valid
     end
 
+    it 'objeto bread invalido com campos obrigatorios não preenchidos?' do
+      bread = Bread.new
+      expect(bread).to be_valid
+    end
+
   end
 
 end
