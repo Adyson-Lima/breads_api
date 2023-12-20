@@ -1,6 +1,6 @@
 class Api::V1::BreadsController < ApplicationController
 
-  before_action :set_bread, only: %i[show update] #show update destroy
+  before_action :set_bread, only: %i[show update destroy] #show update destroy
 
   def index
     @breads = Bread.all 
@@ -26,6 +26,10 @@ class Api::V1::BreadsController < ApplicationController
     else
       render json: @bread.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bread.destroy!
   end
 
 private
